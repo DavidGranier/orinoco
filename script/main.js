@@ -6,28 +6,25 @@ class Camera{
   }
 }
 
-function showAlert ()
-      {
-        alert(`Recuperer l'id de ta camera`);
-      };
-  
 
 
-  fetch(url)
-    .then( res => res.json())
-    .then( jsonListCamera => {
+fetch(url)
+//appel de l'api
 
-      
-      var i = 0;
-      for(let jsonCamera of jsonListCamera){
-        let camera = new Camera(jsonCamera);
+  .then( res => res.json())
+
+  .then( jsonListCamera => {
+    
+    for(let jsonCamera of jsonListCamera){
         
-        console.log(camera)
+      let camera = new Camera(jsonCamera);
 
-        document.getElementById("produit").innerHTML += ` <div class="produit-un" id= ${camera._id} onclick=window.location.href="produit.html">
+      console.log(camera);
+
+      document.getElementById("produit").innerHTML += ` <div class="produit-un" id= ${camera._id} onclick=window.location.href="produit.html?id=${camera._id}">
 
                                                               <div class="produit-un__photo">
-                                                                <img src=${camera.imageUrl} alt="appareil photo"/>
+                                                                <img src=${camera.imageUrl} alt="photo du produit"/>
                                                               </div>
 
                                                               <div class="produit-un__description">
@@ -37,17 +34,20 @@ function showAlert ()
                                                               </div>
                                                               
                                                           </div>`;
-      }
+    }
       
-      console.log(jsonListCamera);
+    console.log(jsonListCamera);
+      
 
-    })
+  })
+
+    
 
 
-    .catch (function(err){
-      console.log("Une erreur est survenue");
-      document.getElementById("produit").innerHTML += "<p>Le serveur ne répond pas, impossible d'afficher les articles.</p>"
-    });
+  .catch (function(err){
+    console.log("Une erreur est survenue");
+    document.getElementById("produit").innerHTML += "<p>Le serveur ne répond pas, impossible d'afficher les articles.</p>";
+  });
 
 
 
