@@ -69,6 +69,76 @@
     }
 }
 
+.section-produit{
+    width: 100%;
+    background-color: $color1;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 20px 20px 0;
+    
+    &-bloc{
+        display: flex;
+        flex-wrap:wrap;
+        align-items: center;
+        justify-content: center;
+        background-color:rgba(128, 128, 128, 0.128);
+        padding: 20px;
+        /*max width 860px : bloc description width 500px*/
+        
+        &__image{
+            width: 500px;
+            height: 500px;
+            margin-right: 20px;
+           
+            &>img{
+                width: 500px;
+                height: 500px;
+                object-fit: cover;
+            }
+        }
+
+        &__description{
+            width: 300px;
+            height: 500px;
+            background-color: white;
+            text-align: center;
+            
+
+            &__model{
+                font-size: 2em;
+                font-weight: bold;
+            }
+
+            &__star{
+                &>i {
+                    color: rgba(128, 128, 128, 0.9);
+                }
+                    
+            }
+
+            &__texte{
+
+            }
+
+            &__prix{
+                
+            }
+
+        }
+
+
+
+
+
+    }
+
+}
+
+
+
+
 
 
 

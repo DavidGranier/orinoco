@@ -1,5 +1,3 @@
-const url = "http://localhost:3000/api/cameras/";
-
 class Camera{
   constructor(jsonCamera){
     jsonCamera && Object.assign(this, jsonCamera);
@@ -8,8 +6,8 @@ class Camera{
 
 
 
-fetch(url)
-//appel de l'api
+fetch("http://localhost:3000/api/cameras/")
+//GET API
 
   .then( res => res.json())
 
