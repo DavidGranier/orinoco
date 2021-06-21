@@ -10,14 +10,15 @@
         &>img{
             margin-left: 20px;
             height: 100px;
-            animation: swipe 2s 1s both;
         }
     }
     &__panier{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         &>i{
             margin: 30px;
             color:#333333;
-            animation: swipe 2s 1s both;
         }
     }
 }

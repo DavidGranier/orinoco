@@ -16,57 +16,32 @@ fetch ("http://localhost:3000/api/cameras/"+id)
       
     }
   })
-  //Affichage des caractéristiques de l'id de la camera 
+  //Affichage des caractéristiques de la camera 
   .then(function(camera) {
     console.log(camera);
     
     document.getElementById("imagecamera").setAttribute("src",camera.imageUrl);
+    document.getElementById("nomcamera").textContent = `${camera.name}`;
+    document.getElementById("descriptioncamera").textContent = `${camera.description}`;
+    document.getElementById("prixcamera").textContent = `Prix : ${camera.price/100} €`;
 
 
+    //liste deroulante des objectifs
+    var select = document.getElementById("listederoulante");
+    for(i in camera.lenses) {
+    select.options[select.options.length] = new Option(camera.lenses[i]);
+}
 
-
-
-    /* document.getElementById("section-produit").innerHTML += `<div id="section-produit-bloc" class="section-produit-bloc">
-
-                                                                  <div class="section-produit-bloc__image"><img src="${camera.imageUrl}"/></div>
-                                                                  
-                                                                  <div class="section-produit-bloc__description">
-                                                                      <div class="section-produit-bloc__description__model">
-                                                                        <p>${camera.name}</p>
-                                                                        <span class="section-produit-bloc__description__star">
-                                                                          <i class="fas fa-star fa-xs">
-                                                                          </i><i class="fas fa-star fa-xs">
-                                                                          </i><i class="fas fa-star fa-xs"></i>
-                                                                          <i class="fas fa-star fa-xs"></i>
-                                                                          <i class="fas fa-star-half-alt fa-xs"></i>
-                                                                        </span>
-                                                                      </div>
-                                                                      <div class="section-produit-bloc__description__texte"><p>${camera.description}</p></div>
-                                                                      <form action="">
-                                                                        <select id="listederoulante" name="Objectif">
-                                                                          
-                                                                          <option value="">${camera.lenses[0]}</option>
-                                                                          <option value="">${camera.lenses[1]}</option>
-                                                                          <option value="">${camera.lenses[2]}</option>
-                                                                        </select>
-                                                                      </form>
-                                                                      <div class="section-produit-bloc__description__prix"><p>Prix : ${camera.price/100}€</p></div>
-                                                                      <button id="boutonpanier">Ajouter au panier</button>
-                                                                      <p id="confirmationpanier"></p>
-                                                                  </div>
-
-                                                                  
-                                                                  
-
-                                                              </div>`;*/
-
-//PANIER
+//------------------PANIER
 
 //ciblage du bouton Ajouter au panier                                                      
 const boutonPanier = document.querySelector("#boutonpanier");
 
-//ciblage paragraphe "ajouté au panier"
-const confirmationPanier = document.querySelector("#confirmationpanier");
+
+
+
+
+
 
 //Récupération du produit choisit dans une variable 
 boutonpanier.addEventListener("click", (event)=>{
@@ -75,6 +50,7 @@ boutonpanier.addEventListener("click", (event)=>{
   if(JSON.parse(localStorage.getItem("produit")) !== null)
   {
     produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
+    
   }
 
   let produitPanier = {
@@ -86,22 +62,31 @@ boutonpanier.addEventListener("click", (event)=>{
   }
   console.log(produitPanier);
 
-
-
-  //local Storage
-  /*
-let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
-console.log(produitLocalStorage);
-*/
   produitLocalStorage.push(produitPanier);
   localStorage.setItem("produit", JSON.stringify(produitLocalStorage));
   console.log(produitLocalStorage);
+  //affichage du message de confirmation
+  document.getElementById("confirmationpanier").style.display = "block";
+
+  let notifPanier = localStorage.getItem("produit");
+
+
+  if(notifPanier !== null){
+  notifPanier = JSON.parse(localStorage.getItem("produit"));
+  document.querySelector(".header__panier p").innerHTML =`${notifPanier.length} articles`;
+  };
+
+
 })
   })
+
   .catch(function(err) {
     document.getElementById("section-produit").innerHTML += `<p>Une erreur est survenue</p>`
   });
 
+
+
+//notification article dans le panier
 
 
 

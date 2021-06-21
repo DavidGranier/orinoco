@@ -18,7 +18,7 @@
     <header class="header">
 
         <a class="header__logo" href="index.html"><img src="images/logoorinoco.png" alt="logo orinoco"></a>
-        <a class="header__panier" href="panier.html"><i id="pannier" class="fas fa-shopping-bag fa-2x"></i></a>
+        <a class="header__panier" href="panier.html"><p id="nombreproduit"></p><i id="pannier" class="fas fa-shopping-bag fa-2x"></i></a>
 
     </header>
 
@@ -37,7 +37,7 @@
                 
                 <div class="section-produit-bloc__description">
                     <div class="section-produit-bloc__description__model">
-                      <p id="cameraname"></p>
+                      <p id="nomcamera"></p>
                       <span class="section-produit-bloc__description__star">
                         <i class="fas fa-star fa-xs">
                         </i><i class="fas fa-star fa-xs">
@@ -46,14 +46,14 @@
                         <i class="fas fa-star-half-alt fa-xs"></i>
                       </span>
                     </div>
-                    <div class="section-produit-bloc__description__texte"><p id="cameradescription"></p></div>
+                    <div class="section-produit-bloc__description__texte"><p id="descriptioncamera"></p></div>
                     <form action="">
                       <select id="listederoulante" name="Objectif">
                         <!-- LISTE DES OBJECTIFs -->
                 
                       </select>
                     </form>
-                    <div class="section-produit-bloc__description__prix"><p id="cameraprix"></p></div>
+                    <div class="section-produit-bloc__description__prix"><p id="prixcamera"></p></div>
                     <button id="boutonpanier">Ajouter au panier</button>
                     <p id="confirmationpanier">Produit ajouté à votre panier! <br/> <strong><a href='panier.html'>Finaliser ma commande</a></strong> <br/> <strong><a href='index.html'>Continuer mes achats</a></strong><br/></p>
                 </div>
@@ -90,6 +90,8 @@
         </div>
 
     </footer>
+    
     <script src="./script/produit.js"></script>
+    <script type="text/javascript" src="./script/main.js"></script>
 </body>
 </html>
