@@ -153,20 +153,41 @@
         }
         &__total{
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             align-items: center;
                 &__texte {
                     margin: 10px 50px;
                 }
         }
+        &__clear{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         &__erreur{
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 50px;
         }
 }
 
 
-
-
-
-
+.section-formulaire{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__bloc{
+        align-items: center;
+        &__titre{
+            text-align: center;
+        }
+        &__form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
 

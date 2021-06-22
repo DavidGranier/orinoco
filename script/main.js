@@ -1,3 +1,6 @@
+//---------------------Affichage du nombre d'item dans le panier sur toutes les pages
+
+
 let notifPanier = localStorage.getItem("produit");
 
 
