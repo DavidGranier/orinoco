@@ -4,7 +4,7 @@
 
 //vider le panier
 function vider(){
-    localStorage.clear();
+    localStorage.clear("produit");
     window.location.reload()
 }
 
@@ -27,7 +27,7 @@ if (affichagePanier !== null){
                                                                     <img class="section-panier__produit__image" src="${affichagePanier[i].image}">
                                                                     <p class="section-panier__produit__titre">${affichagePanier[i].nom}</p>
                                                                     <p class="section-panier__produit__prix">${affichagePanier[i].prix/100} €</p>
-                                                                    <p onclick=enlever() class="section-panier__produit__supprimer"><i  class="fas fa-times fa-xs"></i></p>
+                                                                    
 
                                                                 </div>`
     };
@@ -63,5 +63,32 @@ else{
     console.log("Panier vide");
     document.getElementById("section-panier").innerHTML+=`<div class="section-panier__erreur"><p >Vous n'avez pas encore ajouté de produit à votre panier.<br/> </p><button onclick="window.location.href='index.html'">Consultez notre cathalogue</button></div>`;
 }
+
+
+
+//Formulaire
+
+let contact = [];
+const commander = document.getElementById("validerformulaire");
+
+commander.addEventListener("click", (event)=>{
+    event.preventDefault();
+
+    //nettoyage du localstorage
+    localStorage.removeItem("contact");
+
+    let contact = {
+        prenom : document.getElementById("prenom").value,
+        nom : document.getElementById("nom").value,
+        email : document.getElementById("email").value,
+        ville : document.getElementById("ville").value,
+
+    };
+    console.log(contact);
+    localStorage.setItem("contact", JSON.stringify(contact));
+    
+
+   
+});
 
 
