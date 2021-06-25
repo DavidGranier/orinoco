@@ -130,8 +130,11 @@
 #confirmationpanier{
     display: none;
     flex-direction: row-reverse;
+    background-color: rgba(110, 226, 104, 0.898);
+    &>strong{
+        text-decoration: underline;
+    }
 }
-
 
 /*PANIER*/
 
@@ -175,7 +178,7 @@
 
 
 .section-formulaire{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     &__bloc{

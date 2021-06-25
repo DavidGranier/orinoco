@@ -285,6 +285,11 @@ main {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  background-color: rgba(110, 226, 104, 0.898);
+}
+
+#confirmationpanier > strong {
+  text-decoration: underline;
 }
 
 /*PANIER*/
@@ -366,9 +371,7 @@ main {
 }
 
 .section-formulaire {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;

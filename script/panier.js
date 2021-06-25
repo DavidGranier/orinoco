@@ -56,6 +56,8 @@ if (affichagePanier !== null){
                                                             <div class="section-panier__clear">
                                                                 <button onclick=vider()>Vider le panier</button>
                                                             </div>`;
+    //affiche le formulaire si le panier n'est pas vide
+    document.querySelector(".section-formulaire").style.display = "block";
 
 }
 
@@ -66,7 +68,30 @@ else{
 
 
 
-//Formulaire
+//-----------------------------------------------------------------------Formulaire
+
+
+//Récupération des valeurs du formulaire
+let Nom = document.getElementById("prenom").value;
+let Prenom = document.getElementById("nom").value;
+let Email = document.getElementById("email").value;
+let Ville = document.getElementById("ville").value;
+console.log(nom);
+
+// création de regex pour formulaire
+let NomValid = /^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/; 
+let PrenomValid = /^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+let EmailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+let VilleValid = /^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+
+
+
+
+
+
+
+
+//VALIDATION FORMULAIRE APRES CONTROLE
 
 let contact = [];
 const commander = document.getElementById("validerformulaire");
@@ -74,9 +99,13 @@ const commander = document.getElementById("validerformulaire");
 commander.addEventListener("click", (event)=>{
     event.preventDefault();
 
+    
+
     //nettoyage du localstorage
     localStorage.removeItem("contact");
 
+
+    //définition de l'objet contact
     let contact = {
         prenom : document.getElementById("prenom").value,
         nom : document.getElementById("nom").value,
@@ -84,11 +113,17 @@ commander.addEventListener("click", (event)=>{
         ville : document.getElementById("ville").value,
 
     };
+
+    //envoi dans le local storage
     console.log(contact);
     localStorage.setItem("contact", JSON.stringify(contact));
     
 
-   
+    
+
+    
 });
+
+
 
 
