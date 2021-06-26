@@ -1,4 +1,3 @@
-
 //---------------------------------------------------------------Affichage du produit séléctionné----------------------------
 
 //Récupération chaine de requette URL

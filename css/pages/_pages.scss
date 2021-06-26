@@ -179,9 +179,8 @@
 
 .section-formulaire{
     display: none;
-    flex-direction: column;
-    align-items: center;
     &__bloc{
+        
         align-items: center;
         &__titre{
             text-align: center;
@@ -190,7 +189,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            &>input{
+                border: solid black 2px;
+                border-radius: 20px;
+                padding-left: 10px;
+                &:focus{
+                    outline: none;
+                    
+                    
+                }
+            }
+
         }
     }
 }
+
 

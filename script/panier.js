@@ -1,7 +1,3 @@
- 
-    
-
-
 //vider le panier
 function vider(){
     localStorage.clear("produit");
@@ -71,25 +67,6 @@ else{
 //-----------------------------------------------------------------------Formulaire
 
 
-//Récupération des valeurs du formulaire
-let Nom = document.getElementById("prenom").value;
-let Prenom = document.getElementById("nom").value;
-let Email = document.getElementById("email").value;
-let Ville = document.getElementById("ville").value;
-console.log(nom);
-
-// création de regex pour formulaire
-let NomValid = /^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/; 
-let PrenomValid = /^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-let EmailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-let VilleValid = /^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-
-
-
-
-
-
-
 
 //VALIDATION FORMULAIRE APRES CONTROLE
 
@@ -99,25 +76,113 @@ const commander = document.getElementById("validerformulaire");
 commander.addEventListener("click", (event)=>{
     event.preventDefault();
 
-    
+        //Récupération des valeurs du formulaire
+    let inputPrenom = document.getElementById("prenom").value;
+    let inputNom = document.getElementById("nom").value;
+    let inputEmail = document.getElementById("email").value;
+    let inputVille = document.getElementById("ville").value;
+    console.log(inputPrenom);
 
-    //nettoyage du localstorage
-    localStorage.removeItem("contact");
 
+    //Controle des input formulaire
 
-    //définition de l'objet contact
-    let contact = {
-        prenom : document.getElementById("prenom").value,
-        nom : document.getElementById("nom").value,
-        email : document.getElementById("email").value,
-        ville : document.getElementById("ville").value,
-
+    //controle prénom
+    function validPrenom(){
+        if(/^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/.test(inputPrenom)){
+            console.log("OK");
+            document.getElementById("prenomalert").innerHTML = "<i class='fas fa-check'></i>";
+            document.getElementById("prenomalert").style.color = "green";
+            document.getElementById("prenom").style= "border:solid 2px green; background-color:rgba(0, 128, 0, 0.24);";
+            return true;
+        }
+        else{
+            console.log("KO");
+            document.getElementById("prenomalert").textContent = "Veuillez saisir votre prénom";
+            document.getElementById("prenomalert").style.color = "red";
+            document.getElementById("prenom").style= "border:solid 2px red; background-color:rgba(255, 0, 0, 0.288);";
+            return false;
+        }
     };
 
-    //envoi dans le local storage
-    console.log(contact);
-    localStorage.setItem("contact", JSON.stringify(contact));
+    //controle nom
+    function validNom(){
+        if(/^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/.test(inputNom)){
+            console.log("OK");
+            document.getElementById("nomalert").innerHTML = "<i class='fas fa-check'></i>";
+            document.getElementById("nomalert").style.color = "green";
+            document.getElementById("nom").style= "border:solid 2px green; background-color:rgba(0, 128, 0, 0.24);";
+            return true;
+        }
+        else{
+            console.log("KO");
+            document.getElementById("nomalert").textContent = "Veuillez saisir votre prénom";
+            document.getElementById("nomalert").style.color = "red";
+            document.getElementById("nom").style= "border:solid 2px red; background-color:rgba(255, 0, 0, 0.288);";
+            return false;
+        }
+    };
+
+    //controle email
+    function validEmail(){
+        if(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(inputEmail)){
+            console.log("OK");
+            document.getElementById("emailalert").innerHTML = "<i class='fas fa-check'></i>";
+            document.getElementById("emailalert").style.color = "green";
+            document.getElementById("email").style= "border:solid 2px green; background-color:rgba(0, 128, 0, 0.24);";
+            return true;
+        }
+        else{
+            console.log("KO");
+            document.getElementById("emailalert").textContent = "Veuillez saisir votre prénom";
+            document.getElementById("emailalert").style.color = "red";
+            document.getElementById("email").style= "border:solid 2px red; background-color:rgba(255, 0, 0, 0.288);";
+            return false;
+        }
+    };
+    //controle ville
+    function validVille(){
+        if(/^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/.test(inputVille)){
+            console.log("OK");
+            document.getElementById("villealert").innerHTML = "<i class='fas fa-check'></i>";
+            document.getElementById("villealert").style.color = "green";
+            document.getElementById("ville").style= "border:solid 2px green; background-color:rgba(0, 128, 0, 0.24);";
+            return true;
+        }
+        else{
+            console.log("KO");
+            document.getElementById("villealert").textContent = "Veuillez saisir votre prénom";
+            document.getElementById("villealert").style.color = "red";
+            document.getElementById("ville").style= "border:solid 2px red; background-color:rgba(255, 0, 0, 0.288);";
+            return false;
+        }
+    };
+
+    //execution si toutes les fonctions sont valide
+    if (validPrenom() && validNom() && validEmail() && validVille()){
+        //nettoyage du localstorage
+        localStorage.removeItem("contact");
+
+
+        //définition de l'objet contact
+        let contact = {
+            prenom : document.getElementById("prenom").value,
+            nom : document.getElementById("nom").value,
+            email : document.getElementById("email").value,
+            ville : document.getElementById("ville").value,
+
+        };
+
+        //envoi dans le local storage
+        console.log(contact);
+        localStorage.setItem("contact", JSON.stringify(contact));
+
+        window.location.href = "commande.html";
+    }
     
+    
+    else{
+        alert("Veuillez completer le formulaire");
+    };
 
     
 
@@ -126,4 +191,8 @@ commander.addEventListener("click", (event)=>{
 
 
 
-
+/*// création de regex pour formulaire
+    let NomValid =    /^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/; 
+    let PrenomValid = /^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+    let EmailValid =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let VilleValid =  /^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;*/
