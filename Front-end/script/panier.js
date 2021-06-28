@@ -22,10 +22,11 @@ if (affichagePanier !== null){
         document.getElementById("section-panier").innerHTML += `<div class="section-panier__produit">
                                                                     <img class="section-panier__produit__image" src="${affichagePanier[i].image}">
                                                                     <p class="section-panier__produit__titre">${affichagePanier[i].nom}</p>
+                                                                    
                                                                     <p class="section-panier__produit__prix">${affichagePanier[i].prix/100} €</p>
                                                                     
 
-                                                                </div>`
+                                                                </div>`//<p class="section-panier__produit__lense">${affichagePanier[i].lense}</p> Fonctionnalité désactivée
     };
 
         //calcul prix total
@@ -45,8 +46,6 @@ if (affichagePanier !== null){
     
     document.getElementById("section-panier").innerHTML +=`<div class="section-panier__total">
                                                                 <p class="section-panier__total__texte">Total: ${prixTotal/100} € </p>
-                                                
-                                                                <button>Commander</button>
                                                             </div>
                                                             
                                                             <div class="section-panier__clear">
@@ -64,7 +63,7 @@ else{
 
 
 
-//-----------------------------------------------------------------------Formulaire
+//-----------------------------------------------------------------------Formulaire-------------------
 
 
 
@@ -80,6 +79,7 @@ commander.addEventListener("click", (event)=>{
     let inputPrenom = document.getElementById("prenom").value;
     let inputNom = document.getElementById("nom").value;
     let inputEmail = document.getElementById("email").value;
+    let inputAdresse = document.getElementById("adresse").value;
     let inputVille = document.getElementById("ville").value;
     console.log(inputPrenom);
 
@@ -115,7 +115,7 @@ commander.addEventListener("click", (event)=>{
         }
         else{
             console.log("KO");
-            document.getElementById("nomalert").textContent = "Veuillez saisir votre prénom";
+            document.getElementById("nomalert").textContent = "Veuillez saisir votre nom";
             document.getElementById("nomalert").style.color = "red";
             document.getElementById("nom").style= "border:solid 2px red; background-color:rgba(255, 0, 0, 0.288);";
             return false;
@@ -133,9 +133,27 @@ commander.addEventListener("click", (event)=>{
         }
         else{
             console.log("KO");
-            document.getElementById("emailalert").textContent = "Veuillez saisir votre prénom";
+            document.getElementById("emailalert").textContent = "Veuillez saisir votre adresse email";
             document.getElementById("emailalert").style.color = "red";
             document.getElementById("email").style= "border:solid 2px red; background-color:rgba(255, 0, 0, 0.288);";
+            return false;
+        }
+    };
+
+    //controle adresse
+    function validAdresse(){
+        if(/^\d+\s[A-z]+\s[A-z]+/.test(inputAdresse)){
+            console.log("OK");
+            document.getElementById("adressealert").innerHTML = "<i class='fas fa-check'></i>";
+            document.getElementById("adressealert").style.color = "green";
+            document.getElementById("adresse").style= "border:solid 2px green; background-color:rgba(0, 128, 0, 0.24);";
+            return true;
+        }
+        else{
+            console.log("KO");
+            document.getElementById("adressealert").textContent = "Veuillez saisir votre adresse";
+            document.getElementById("adressealert").style.color = "red";
+            document.getElementById("adresse").style= "border:solid 2px red; background-color:rgba(255, 0, 0, 0.288);";
             return false;
         }
     };
@@ -150,7 +168,7 @@ commander.addEventListener("click", (event)=>{
         }
         else{
             console.log("KO");
-            document.getElementById("villealert").textContent = "Veuillez saisir votre prénom";
+            document.getElementById("villealert").textContent = "Veuillez saisir votre ville";
             document.getElementById("villealert").style.color = "red";
             document.getElementById("ville").style= "border:solid 2px red; background-color:rgba(255, 0, 0, 0.288);";
             return false;
@@ -158,41 +176,58 @@ commander.addEventListener("click", (event)=>{
     };
 
     //execution si toutes les fonctions sont valide
-    if (validPrenom() && validNom() && validEmail() && validVille()){
+    if (validPrenom() && validAdresse() && validNom() && validEmail() && validVille()){
         //nettoyage du localstorage
         localStorage.removeItem("contact");
 
 
         //définition de l'objet contact
         let contact = {
-            prenom : document.getElementById("prenom").value,
-            nom : document.getElementById("nom").value,
+            firstName : document.getElementById("prenom").value,
+            lastName : document.getElementById("nom").value,
+            address : document.getElementById("adresse").value,
+            city : document.getElementById("ville").value,
             email : document.getElementById("email").value,
-            ville : document.getElementById("ville").value,
-
         };
+
+        //recup juste les id
+        let produit = JSON.parse(localStorage.getItem("produit"));
+        let produitId = [];
+        for(let i =0; i<produit.length; i++){
+            produitId.push(produit[i]._id);
+            
+        }
 
         //envoi dans le local storage
         console.log(contact);
         localStorage.setItem("contact", JSON.stringify(contact));
 
-        window.location.href = "commande.html";
-    }
+        let commande = {
+            contact : contact,
+            products : produitId,
+        };
+        
     
+        // envoi au serveur
     
-    else{
-        alert("Veuillez completer le formulaire");
-    };
-
-    
-
-    
+        fetch("http://localhost:3000/api/cameras/order", {
+            method: 'POST',            
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(commande) // conversion en JSON des données requis par le serveur 
+        })
+        .then(response => { response.json()
+            .then(function(json) {
+                let orderId = json.orderId;
+                console.log(orderId);
+                document.location.href = `commande.html?id=${orderId}`;
+                // envoi de l'ID de la commande dans l'url de la page de validation 
+            });
+        })
+        .catch(error => { // enregistrement si erreur lors de l'envoi de données 
+             alert(error);
+        })  
+    } 
 });
 
-
-
-/*// création de regex pour formulaire
-    let NomValid =    /^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/; 
-    let PrenomValid = /^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-    let EmailValid =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let VilleValid =  /^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;*/

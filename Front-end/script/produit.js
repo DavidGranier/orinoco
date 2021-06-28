@@ -49,8 +49,9 @@ fetch ("http://localhost:3000/api/cameras/"+id)
     let produitPanier = {
       image: camera.imageUrl,
       nom : camera.name,
-      id : camera._id,
-      prix : camera.price
+      _id : camera._id,
+      prix : camera.price,
+     // lense : document.getElementById("listederoulante").value   ---Fonctionnalité à venir
 
     }
     console.log(produitPanier);

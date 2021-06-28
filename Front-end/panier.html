@@ -1,14 +1,18 @@
- <!--TITRE ET LOGO-->
- <title>Orinoco</title>
- <link rel="shortcut icon" type="image/png" href="images/logoorinoco.png"/>
- <!--CSS JS-->
- <link rel="stylesheet" href="css/main.css">
- <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="fr">
  
- <!--FONTS ET ICONES-->
- <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
- <link rel="preconnect" href="https://fonts.gstatic.com">
- <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+<head>
+    <!--TITRE ET LOGO-->
+    <title>Orinoco</title>
+    <link rel="shortcut icon" type="image/png" href="logoorinoco.png"/>
+    <!--CSS JS-->
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--FONTS ET ICONES-->
+    <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
 
 </head>  
 
@@ -17,7 +21,7 @@
 
    <header class="header">
 
-       <a class="header__logo" href="index.html"><img src="images/logoorinoco.png" alt="logo orinoco"></a>
+       <a class="header__logo" href="index.html"><img src="logoorinoco.png" alt="logo orinoco"></a>
        <a class="header__panier" href="panier.html"><p id="nombreproduit"></p><i id="pannier" class="fas fa-shopping-bag fa-2x"></i></a>
 
    </header>
@@ -46,9 +50,12 @@
                     <label for="lastname">Nom</label>
                     <input id="nom" type="text" name="lastname" required>
                     <p id="nomalert"></p>
-                    <label for="email">Adresse mail</label>
+                    <label for="email">Email</label>
                     <input id="email" type="email" name="email" required>
                     <p id="emailalert"></p>
+                    <label for="adresse">Adresse</label>
+                    <input id="adresse" type="text" name="adresse" required>
+                    <p id="adressealert"></p>
                     <label for="city">Ville</label>
                     <input id="ville" type="text" name="city" required>
                     <p id="villealert"></p>
