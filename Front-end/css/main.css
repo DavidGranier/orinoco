@@ -406,4 +406,8 @@ main {
 .section-formulaire__bloc__form > input:focus {
   outline: none;
 }
+
+.section-commande {
+  text-align: center;
+}
 /*# sourceMappingURL=main.css.map */

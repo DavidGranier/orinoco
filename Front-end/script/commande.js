@@ -1,38 +1,18 @@
-/*//Récupération du localStorage
-let contact = JSON.parse(localStorage.getItem("contact"));
-let produit = JSON.parse(localStorage.getItem("produit"));
+//récupération de l'ID de commande dans l'URL
+let params = new URLSearchParams(location.search);
+let id = params.get("id");
+console.log(id);
 
-//recup juste les id
-let products = [];
-for(let i =0; i<produit.length; i++){
-    products.push(produit[i]._id);
-    
+
+//vide le panier automatiquement après la validation de la commande
+
+if(id !== null){
+    localStorage.clear();
+    document.getElementById("section-commande").innerHTML = `<p>Votre commande n°<strong>${id}</strong> à bien été envoyée</p>`;
 }
 
-console.log(products);
+else{
+    window.location.href ="./index.html";
 
 
-let commande = {
-    
-    contact,
-    products
-      
-};
-
-console.log(commande);
-
-//Redirection vers panier.html si le formulaire contact est vide
-if(contact === null){
-    window.location.href="panier.html";
 }
-
-//Post de l'objet contact et tableau produit
-fetch("http://localhost:3000/api/cameras/order",{
-    method : "POST",
-    body : commande,
-    headers : {
-        "Accept": "application/json",
-        "Content-Type" : "application/json",
-    },
-});*/
-

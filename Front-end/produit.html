@@ -1,78 +1,68 @@
 <!doctype html>
 <html lang="fr">
 
-<head> 
-  <!--TITRE ET LOGO-->
-  <title>Orinoco</title>
-  <link rel="shortcut icon" type="image/png" href="logoorinoco.png"/>
-  <!--CSS JS-->
-  <link rel="stylesheet" href="css/main.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head> 
+    <!--TITRE ET LOGO-->
+    <title>Orinoco</title>
+    <link rel="shortcut icon" type="image/png" href="logoorinoco.png"/>
+    <!--CSS JS-->
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!--FONTS ET ICONES-->
-  <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+    <!--FONTS ET ICONES-->
+    <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
 
-</head>  
+  </head>  
 
-
-<body>
+  <body>
 
     <header class="header">
 
-        <a class="header__logo" href="index.html"><img src="logoorinoco.png" alt="logo orinoco"></a>
-        <a class="header__panier" href="panier.html"><p id="nombreproduit"></p><i id="pannier" class="fas fa-shopping-bag fa-2x"></i></a>
+      <a class="header__logo" href="index.html"><img src="logoorinoco.png" alt="logo orinoco"></a>
+      <a class="header__panier" href="panier.html"><p id="nombreproduit"></p><i id="pannier" class="fas fa-shopping-bag fa-2x"></i></a>
 
     </header>
 
     <main>
     
-        <div class="bandeau">
-            <h1>Détails du produit</h1>
-            
-        </div>
+      <div class="bandeau">
+        <h1>Détails du produit</h1>
+        
+      </div>
 
         
-        <section id="section-produit" class="section-produit">
-            <div id="section-produit-bloc" class="section-produit-bloc">
+      <section id="section-produit" class="section-produit">
+        <div id="section-produit-bloc" class="section-produit-bloc">
 
-                <div class="section-produit-bloc__image"><img id="imagecamera"src=""/></div>
-                
-                <div class="section-produit-bloc__description">
-                    <div class="section-produit-bloc__description__model">
-                      <p id="nomcamera"></p>
-                      <span class="section-produit-bloc__description__star">
-                        <i class="fas fa-star fa-xs">
-                        </i><i class="fas fa-star fa-xs">
-                        </i><i class="fas fa-star fa-xs"></i>
-                        <i class="fas fa-star fa-xs"></i>
-                        <i class="fas fa-star-half-alt fa-xs"></i>
-                      </span>
-                    </div>
-                    <div class="section-produit-bloc__description__texte"><p id="descriptioncamera"></p></div>
-                    <form action="">
-                      <select id="listederoulante" name="Objectif">
-                        <!-- LISTE DES OBJECTIFs -->
-                
-                      </select>
-                    </form>
-                    <div class="section-produit-bloc__description__prix"><p id="prixcamera"></p></div>
-                    <button id="boutonpanier">Ajouter au panier</button>
-                    <p id="confirmationpanier">Produit ajouté à votre panier! <br/> <strong><a href='panier.html'>Finaliser ma commande</a></strong> <br/> <strong><a href='index.html'>Continuer mes achats</a></strong><br/></p>
-                </div>
-
-                
-                
-
+          <div class="section-produit-bloc__image"><img id="imagecamera"src=""/></div>
+            
+          <div class="section-produit-bloc__description">
+              <div class="section-produit-bloc__description__model">
+                <p id="nomcamera"></p>
+                <span class="section-produit-bloc__description__star">
+                  <i class="fas fa-star fa-xs"></i>
+                  <i class="fas fa-star fa-xs"></i>
+                  <i class="fas fa-star fa-xs"></i>
+                  <i class="fas fa-star fa-xs"></i>
+                  <i class="fas fa-star-half-alt fa-xs"></i>
+                </span>
+              </div>
+              <div class="section-produit-bloc__description__texte"><p id="descriptioncamera"></p></div>
+              <form action="">
+                <select id="listederoulante" name="Objectif">
+                  <!-- LISTE DES OBJECTIFs -->
+                </select>
+                </form>
+                <div class="section-produit-bloc__description__prix"><p id="prixcamera"></p></div>
+                <button id="boutonpanier">Ajouter au panier</button>
+                <p id="confirmationpanier">Produit ajouté à votre panier! <br/> <strong><a href='panier.html'>Finaliser ma commande</a></strong> <br/> <strong><a href='index.html'>Continuer mes achats</a></strong><br/></p>
             </div>
 
-            
+        </div>
 
-        </section>
-        
-
-        
+      </section>
 
     </main>
 
@@ -97,5 +87,5 @@
     
     <script src="./script/produit.js"></script>
     <script type="text/javascript" src="./script/main.js"></script>
-</body>
+  </body>
 </html>

@@ -1,96 +1,96 @@
 <!doctype html>
 <html lang="fr">
  
-<head>
-    <!--TITRE ET LOGO-->
-    <title>Orinoco</title>
-    <link rel="shortcut icon" type="image/png" href="logoorinoco.png"/>
-    <!--CSS JS-->
-    <link rel="stylesheet" href="css/main.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <!--TITRE ET LOGO-->
+        <title>Orinoco</title>
+        <link rel="shortcut icon" type="image/png" href="logoorinoco.png"/>
+        <!--CSS JS-->
+        <link rel="stylesheet" href="css/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--FONTS ET ICONES-->
+        <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
 
-    <!--FONTS ET ICONES-->
-    <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
-
-</head>  
-
-
-<body>
-
-   <header class="header">
-
-       <a class="header__logo" href="index.html"><img src="logoorinoco.png" alt="logo orinoco"></a>
-       <a class="header__panier" href="panier.html"><p id="nombreproduit"></p><i id="pannier" class="fas fa-shopping-bag fa-2x"></i></a>
-
-   </header>
-
-   <main>
-   
-       <div class="bandeau">
-           <h1>Mon panier</h1>
-           
-       </div>
-
-       
-       <section id="section-panier" class="section-panier">
-
-       </section>
-
-       <section class="section-formulaire">
-            <div class="section-formulaire__bloc">
-                <h2 class="section-formulaire__bloc__titre">Valider votre commande</h2>
+    </head>  
 
 
-                <form class="section-formulaire__bloc__form">
-                    <label for="firstname">Prénom</label>
-                    <input id="prenom" type="text" name="firstname" maxlength="10" required>
-                    <p id="prenomalert"></p>
-                    <label for="lastname">Nom</label>
-                    <input id="nom" type="text" name="lastname" required>
-                    <p id="nomalert"></p>
-                    <label for="email">Email</label>
-                    <input id="email" type="email" name="email" required>
-                    <p id="emailalert"></p>
-                    <label for="adresse">Adresse</label>
-                    <input id="adresse" type="text" name="adresse" required>
-                    <p id="adressealert"></p>
-                    <label for="city">Ville</label>
-                    <input id="ville" type="text" name="city" required>
-                    <p id="villealert"></p>
-                    <button id="validerformulaire" type="submit">Valider</button>
-                </form>
-               
+    <body>
 
-           </div>
-       </section>
-       
+        <header class="header">
 
-       
+            <a class="header__logo" href="index.html"><img src="logoorinoco.png" alt="logo orinoco"></a>
+            <a class="header__panier" href="panier.html"><p id="nombreproduit"></p><i id="pannier" class="fas fa-shopping-bag fa-2x"></i></a>
 
-   </main>
+        </header>
 
-   <footer class="footer">
-       <div class="footer__bloc">
-           <p>A PROPOS</p>
-           <a href="">Qui sommes-nous ?</a>
-           <a href="">Recrutement</a>
-           <a href="">Mentions légales</a>
-           <a href="">Politique de confidentialité</a>
-       </div>
+        <main>
+        
+            <div class="bandeau">
+                <h1>Mon panier</h1>
+            </div>
 
-       <div class="footer__bloc">
-           <p>AIDE ET CONTACT</p>
-           <a href="">Contactez-nous</a>
-           <a href="">Paiement</a>
-           <a href="">Livraison</a>
-           <a href="">SAV</a>
-       </div>
+            
+            <section id="section-panier" class="section-panier">
 
-   </footer>
-   
-   <script src="./script/panier.js"></script>
-   <script type="text/javascript" src="./script/main.js"></script>
-</body>
+            </section>
+
+            <section class="section-formulaire">
+                <div class="section-formulaire__bloc">
+
+                    <h2 class="section-formulaire__bloc__titre">Valider votre commande</h2>
+
+                    <form class="section-formulaire__bloc__form">
+
+                        <label for="firstname">Prénom</label>
+                        <input id="prenom" type="text" name="firstname" maxlength="10" required>
+                        <p id="prenomalert"></p>
+                        <label for="lastname">Nom</label>
+                        <input id="nom" type="text" name="lastname" required>
+                        <p id="nomalert"></p>
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="email" required>
+                        <p id="emailalert"></p>
+                        <label for="adresse">Adresse</label>
+                        <input id="adresse" type="text" name="adresse" required>
+                        <p id="adressealert"></p>
+                        <label for="city">Ville</label>
+                        <input id="ville" type="text" name="city" required>
+                        <p id="villealert"></p>
+                        <button id="validerformulaire" type="submit">Valider</button>
+                        
+                    </form>
+
+                </div>
+
+            </section>
+            
+
+            
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer__bloc">
+                <p>A PROPOS</p>
+                <a href="">Qui sommes-nous ?</a>
+                <a href="">Recrutement</a>
+                <a href="">Mentions légales</a>
+                <a href="">Politique de confidentialité</a>
+            </div>
+
+            <div class="footer__bloc">
+                <p>AIDE ET CONTACT</p>
+                <a href="">Contactez-nous</a>
+                <a href="">Paiement</a>
+                <a href="">Livraison</a>
+                <a href="">SAV</a>
+            </div>
+
+        </footer>
+        
+        <script src="./script/panier.js"></script>
+        <script type="text/javascript" src="./script/main.js"></script>
+    </body>
 </html>

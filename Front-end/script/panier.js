@@ -1,23 +1,21 @@
-//vider le panier
+//fonction vider le panier
 function vider(){
     localStorage.clear("produit");
     window.location.reload()
 }
 
-//retirer le produit
-function enlever(){
-    localStorage.removeItem("produit[i]");
-    window.location.reload();
-}
 
+//------------------Affichage des produits dans le panier----------------
 
-//Affichage des produits dans le panier
+//Récupération des objets dans l'array produit du localstorage
 let affichagePanier = localStorage.getItem("produit");
 console.log(affichagePanier);
 
+//Affichage du panier si le localstorage a bien enregistré un produit 
 if (affichagePanier !== null){
     affichagePanier = JSON.parse(localStorage.getItem("produit"));
     console.log(affichagePanier);
+    //création d'une ligne récapitulant les informations de chaque produit dans le panier
     for (i in affichagePanier){
         document.getElementById("section-panier").innerHTML += `<div class="section-panier__produit">
                                                                     <img class="section-panier__produit__image" src="${affichagePanier[i].image}">
@@ -26,7 +24,7 @@ if (affichagePanier !== null){
                                                                     <p class="section-panier__produit__prix">${affichagePanier[i].prix/100} €</p>
                                                                     
 
-                                                                </div>`//<p class="section-panier__produit__lense">${affichagePanier[i].lense}</p> Fonctionnalité désactivée
+                                                                </div>`//<p class="section-panier__produit__lense">${affichagePanier[i].lense}</p> Fonctionnalité lense désactivée
     };
 
         //calcul prix total
@@ -36,14 +34,13 @@ if (affichagePanier !== null){
     for (let i=0; i < affichagePanier.length; i++){
         let prixTotalPanier = affichagePanier[i].prix;
         prixTotal.push(prixTotalPanier);
-
     };
-    
+    //calcul de la somme
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-    prixTotal =prixTotal.reduce(reducer);
+    prixTotal = prixTotal.reduce(reducer);
     console.log(prixTotal);
     
+    //Ajout du module d'affichage du prix total + bouton avec fonction "vider le panier"
     document.getElementById("section-panier").innerHTML +=`<div class="section-panier__total">
                                                                 <p class="section-panier__total__texte">Total: ${prixTotal/100} € </p>
                                                             </div>
@@ -56,6 +53,7 @@ if (affichagePanier !== null){
 
 }
 
+//Si le panier est vide
 else{
     console.log("Panier vide");
     document.getElementById("section-panier").innerHTML+=`<div class="section-panier__erreur"><p >Vous n'avez pas encore ajouté de produit à votre panier.<br/> </p><button onclick="window.location.href='index.html'">Consultez notre cathalogue</button></div>`;
