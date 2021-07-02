@@ -105,6 +105,10 @@ main {
           align-items: center;
 }
 
+h1 {
+  text-align: center;
+}
+
 .footer {
   background-color: #f3e9f1;
   display: -webkit-box;
@@ -148,6 +152,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 20px 0 20px 0;
 }
 
 .bloc-produit {

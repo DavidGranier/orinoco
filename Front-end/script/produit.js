@@ -33,7 +33,7 @@ fetch ("http://localhost:3000/api/cameras/"+id)
   //-------------------------------------------------------------Ajout au panier localstorage---------------------------------------
 
 
-  //Ajout de l'article au click du bouton "ajouter au panier" + actualisation du nombre d'item affiché dans le panier
+  //---------Ajout de l'article au click du bouton "ajouter au panier" + actualisation du nombre d'item affiché dans le panier
 
   //ciblage du bouton Ajouter au panier                                                      
   const boutonPanier = document.querySelector("#boutonpanier");
@@ -41,6 +41,7 @@ fetch ("http://localhost:3000/api/cameras/"+id)
   //Récupération du produit choisit dans une variable 
   boutonpanier.addEventListener("click", (event)=>{
     event.preventDefault();
+
     let produitLocalStorage = [];
     if(JSON.parse(localStorage.getItem("produit")) !== null){
       produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
@@ -51,14 +52,16 @@ fetch ("http://localhost:3000/api/cameras/"+id)
       nom : camera.name,
       _id : camera._id,
       prix : camera.price,
-     // lense : document.getElementById("listederoulante").value   ---Fonctionnalité à venir
+     // lense : document.getElementById("listederoulante").value   ---Fonctionnalité à venir----
 
     }
     console.log(produitPanier);
+
     //envoi du panier au localstorage
     produitLocalStorage.push(produitPanier);
     localStorage.setItem("produit", JSON.stringify(produitLocalStorage));
     console.log(produitLocalStorage);
+    
     //affichage du message de confirmation en HTML
     document.getElementById("confirmationpanier").style.display = "block";
 
@@ -66,24 +69,11 @@ fetch ("http://localhost:3000/api/cameras/"+id)
     let notifPanier = localStorage.getItem("produit");
     if(notifPanier !== null){
     notifPanier = JSON.parse(localStorage.getItem("produit"));
-    document.querySelector(".header__panier p").innerHTML =`${notifPanier.length} articles`;
+    document.querySelector(".header__panier p").innerHTML =`${notifPanier.length}`;
     };
-
-
   })
 })//fin then
 
 .catch(function(err) {
   document.getElementById("section-produit").innerHTML += `<p>Une erreur est survenue</p>`
 });
-
-
-
-//notification article dans le panier
-
-
-
-
-
-
-

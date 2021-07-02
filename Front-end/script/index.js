@@ -15,7 +15,7 @@ fetch("http://localhost:3000/api/cameras/")
     let camera = new Camera(jsonCamera);
     console.log(camera);
 
-    //Création des cartes
+    //Création des cartes en fonction du nombre de produit
     document.getElementById("produit").innerHTML += ` <div class="produit-un" id= ${camera._id} onclick=window.location.href="produit.html?id=${camera._id}">
 
                                                             <div class="produit-un__photo">

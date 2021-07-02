@@ -13,6 +13,7 @@ console.log(affichagePanier);
 
 //Affichage du panier si le localstorage a bien enregistré un produit 
 if (affichagePanier !== null){
+
     affichagePanier = JSON.parse(localStorage.getItem("produit"));
     console.log(affichagePanier);
     //création d'une ligne récapitulant les informations de chaque produit dans le panier
@@ -20,14 +21,11 @@ if (affichagePanier !== null){
         document.getElementById("section-panier").innerHTML += `<div class="section-panier__produit">
                                                                     <img class="section-panier__produit__image" src="${affichagePanier[i].image}">
                                                                     <p class="section-panier__produit__titre">${affichagePanier[i].nom}</p>
-                                                                    
                                                                     <p class="section-panier__produit__prix">${affichagePanier[i].prix/100} €</p>
-                                                                    
-
-                                                                </div>`//<p class="section-panier__produit__lense">${affichagePanier[i].lense}</p> Fonctionnalité lense désactivée
+                                                                </div>`//<p class="section-panier__produit__lense">${affichagePanier[i].lense}</p> ---Fonctionnalité lense désactivée---
     };
 
-        //calcul prix total
+    //calcul prix total
 
     //Recuperation du prix de chaque article dans le panier
     let prixTotal = [];
@@ -51,7 +49,7 @@ if (affichagePanier !== null){
     //affiche le formulaire si le panier n'est pas vide
     document.querySelector(".section-formulaire").style.display = "block";
 
-}
+}//fin if
 
 //Si le panier est vide
 else{
@@ -70,10 +68,12 @@ else{
 let contact = [];
 const commander = document.getElementById("validerformulaire");
 
+
+//au click du bouton commander
 commander.addEventListener("click", (event)=>{
     event.preventDefault();
 
-        //Récupération des valeurs du formulaire
+    //Récupération des valeurs du formulaire
     let inputPrenom = document.getElementById("prenom").value;
     let inputNom = document.getElementById("nom").value;
     let inputEmail = document.getElementById("email").value;
@@ -82,7 +82,7 @@ commander.addEventListener("click", (event)=>{
     console.log(inputPrenom);
 
 
-    //Controle des input formulaire
+    //----------------Controle des input formulaire
 
     //controle prénom
     function validPrenom(){
