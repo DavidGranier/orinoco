@@ -24,7 +24,7 @@ fetch("http://localhost:3000/api/cameras/")
 
                                                             <div class="produit-un__description">
                                                               <h3>${camera.name}</h2>
-                                                              <p>${camera.description}</p>
+                                                              <p class="descriptioncamera">${camera.description}</p>
                                                               <p>${camera.price/100}€</p>
                                                             </div>
                                                             

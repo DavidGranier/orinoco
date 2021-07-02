@@ -9,7 +9,7 @@
 
 
 .bloc-produit{
-    width: 100%;
+    max-width: 100%;
     background-color: $color1;
     &>h2{
         text-align: center;
@@ -30,6 +30,9 @@
         border-radius: 20px;
         background-color: white;
         margin: 20px;
+        @media (max-width: 400px) {
+            margin : 10px 0 10px 0;
+        }
         display: flex;
         cursor: pointer;
         &:hover {
@@ -38,12 +41,12 @@
         }
         
         &__photo{
-            width: 150px;
+            width: 200px;
             height: 200px;
             border-radius: 20px 0 0 20px;
             &>img {
                 padding: 5px;
-                width: 140px;
+                width: 190px;
                 height: 190px;
                 object-fit: cover;
                 border-radius: 20px 0 0 20px;
@@ -55,6 +58,8 @@
         &__description{
             flex: 1;
             height: 150px;
+            text-align: center;
+            justify-content: center;
             
             border-radius: 0 20px 20px 0;
             padding: 10px;
@@ -63,9 +68,14 @@
             &>p {
                 max-height: 100px;
                 overflow: hidden;
-                text-align: justify;
+                text-align: justify center;
             }
         }
+    }
+}
+.descriptioncamera{
+    @media (max-width: 600px) {
+        display : none;
     }
 }
 
@@ -76,7 +86,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0 20px 20px 0;
+    
     
     &-bloc{
         display: flex;
@@ -85,21 +95,47 @@
         justify-content: center;
         background-color:rgba(128, 128, 128, 0.128);
         padding: 20px;
+        @media (max-width: 900px) {
+            width: 500px;
+        }
+        @media (max-width: 600px) {
+            padding: 0;
+            width: 100%;
+            
+        }
+
         /*max width 860px : bloc description width 500px*/
         
         &__image{
             width: 500px;
             height: 500px;
-            margin-right: 20px;
+            @media (max-width: 600px) {
+                text-align: center;
+                width: 100%;
+                
+            }
+            
+            
            
             &>img{
                 width: 500px;
                 height: 500px;
                 object-fit: cover;
+                @media (max-width: 600px) {
+                width: 90%;
+                
+                }
             }
         }
 
         &__description{
+            @media (max-width: 900px) {
+                width: 500px;
+                }
+            @media (max-width: 600px) {
+                width: 90%;
+                
+                }
             width: 300px;
             height: 500px;
             background-color: white;
@@ -130,23 +166,24 @@
 #confirmationpanier{
     display: none;
     flex-direction: row-reverse;
-    background-color: rgba(110, 226, 104, 0.898);
-    &>strong{
-        text-decoration: underline;
-    }
+    background-color: rgba(110, 226, 104, 0.479) ;
+    border: solid 1px rgba(110, 226, 104, 0.898);
 }
 
 /*PANIER*/
 
 .section-panier{
+    width: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
+    
         &__produit{
+        margin-bottom: 10px;
         display: flex;
+        justify-content: space-between;
         text-align: center;
         align-items: center;
-        justify-content: space-around;
             &__image{
                 width: 100px;
                 height: 100px;

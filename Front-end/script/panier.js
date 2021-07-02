@@ -56,7 +56,7 @@ if (affichagePanier !== null){
 //Si le panier est vide
 else{
     console.log("Panier vide");
-    document.getElementById("section-panier").innerHTML+=`<div class="section-panier__erreur"><p >Vous n'avez pas encore ajouté de produit à votre panier.<br/> </p><button onclick="window.location.href='index.html'">Consultez notre cathalogue</button></div>`;
+    document.getElementById("section-panier").innerHTML+=`<div class="section-panier__erreur"><p >Panier vide.<br/> </p><button onclick="window.location.href='index.html'">Consultez notre cathalogue</button></div>`;
 }
 
 
@@ -174,7 +174,7 @@ commander.addEventListener("click", (event)=>{
     };
 
     //execution si toutes les fonctions sont valide
-    if (validPrenom() && validAdresse() && validNom() && validEmail() && validVille()){
+    if (validPrenom() && validNom() && validEmail() && validAdresse() && validVille()){
         //nettoyage du localstorage
         localStorage.removeItem("contact");
 
@@ -188,44 +188,14 @@ commander.addEventListener("click", (event)=>{
             email : document.getElementById("email").value,
         };
 
-        //recup juste les id
-        let produit = JSON.parse(localStorage.getItem("produit"));
-        let produitId = [];
-        for(let i =0; i<produit.length; i++){
-            produitId.push(produit[i]._id);
-            
-        }
+        
 
-        //envoi dans le local storage
+        //envoi contact dans le local storage
         console.log(contact);
         localStorage.setItem("contact", JSON.stringify(contact));
-
-        let commande = {
-            contact : contact,
-            products : produitId,
-        };
         
-    
-        // envoi au serveur
-    
-        fetch("http://localhost:3000/api/cameras/order", {
-            method: 'POST',            
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(commande) // conversion en JSON des données requis par le serveur 
-        })
-        .then(response => { response.json()
-            .then(function(json) {
-                let orderId = json.orderId;
-                console.log(orderId);
-                document.location.href = `commande.html?id=${orderId}`;
-                // envoi de l'ID de la commande dans l'url de la page de validation 
-            });
-        })
-        .catch(error => { // enregistrement si erreur lors de l'envoi de données 
-             alert(error);
-        })  
+       //redirection vers commande.html
+       window.location.href="commande.html";
     } 
 });
 
