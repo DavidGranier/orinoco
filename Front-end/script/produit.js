@@ -52,7 +52,7 @@ fetch ("http://localhost:3000/api/cameras/"+id)
       nom : camera.name,
       _id : camera._id,
       prix : camera.price,
-     // lense : document.getElementById("listederoulante").value   ---Fonctionnalité à venir----
+     lense : document.getElementById("listederoulante").value  
 
     }
     console.log(produitPanier);

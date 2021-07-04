@@ -4,7 +4,6 @@ function vider(){
     window.location.reload()
 }
 
-
 //------------------Affichage des produits dans le panier----------------
 
 //Récupération des objets dans l'array produit du localstorage
@@ -20,9 +19,13 @@ if (affichagePanier !== null){
     for (i in affichagePanier){
         document.getElementById("section-panier").innerHTML += `<div class="section-panier__produit">
                                                                     <img class="section-panier__produit__image" src="${affichagePanier[i].image}">
-                                                                    <p class="section-panier__produit__titre">${affichagePanier[i].nom}</p>
+                                                                    <div>
+                                                                    <p class="section-panier__produit__titre"><strong>${affichagePanier[i].nom}</strong></p>
+                                                                    <p class="section-panier__produit__lense">${affichagePanier[i].lense}</p>
+                                                                    </div>
                                                                     <p class="section-panier__produit__prix">${affichagePanier[i].prix/100} €</p>
-                                                                </div>`//<p class="section-panier__produit__lense">${affichagePanier[i].lense}</p> ---Fonctionnalité lense désactivée---
+                                                                    
+                                                                </div>`
     };
 
     //calcul prix total
@@ -197,5 +200,5 @@ commander.addEventListener("click", (event)=>{
        //redirection vers commande.html
        window.location.href="commande.html";
     } 
-});
+});//fin addEventListener
 

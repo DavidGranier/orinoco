@@ -383,10 +383,15 @@ h1 {
 }
 
 .section-panier__produit__image {
+  margin-left: -20px;
   width: 100px;
   height: 100px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.section-panier__produit__prix {
+  margin-left: 20px;
 }
 
 .section-panier__total {

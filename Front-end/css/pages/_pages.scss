@@ -61,6 +61,7 @@
             height: 150px;
             text-align: center;
             justify-content: center;
+           
             
             border-radius: 0 20px 20px 0;
             padding: 10px;
@@ -186,10 +187,14 @@
         text-align: center;
         align-items: center;
             &__image{
+                margin-left: -20px;
                 width: 100px;
                 height: 100px;
                 object-fit: cover;
                 
+            }
+            &__prix{
+                margin-left: 20px ;
             }
         }
         &__total{

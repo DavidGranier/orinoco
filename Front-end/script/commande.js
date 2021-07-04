@@ -1,9 +1,4 @@
-
-
- 
- 
- //-------------------Envoi de la commande au serveur------------------
- 
+//-------------------Envoi de la commande au serveur------------------
  
 //recup juste les id produit
 let produit = JSON.parse(localStorage.getItem("produit"));
@@ -17,40 +12,41 @@ for(let i =0; i<produit.length; i++){
      produitId.push(produit[i]._id);  
 }
 
- //recup contact
- let contact = JSON.parse(localStorage.getItem("contact"));
-//retour a l'index.html si contact est null
- if (contact === null){
-    window.location.href ="./index.html"; 
- }
+//recup contact
+let contact = JSON.parse(localStorage.getItem("contact"));
 
- let commande = {
+//retour a l'index.html si contact est null
+if (contact === null){
+    window.location.href ="./index.html"; 
+}
+
+let commande = {
      contact : contact,
      products : produitId,
- };
+};
  
 
 
  // envoi au serveur
 
- fetch("http://localhost:3000/api/cameras/order", {
-     method: 'POST',            
-     headers: {
-         'Content-Type': 'application/json'
-     },
-     body: JSON.stringify(commande) // conversion en JSON des données requis par le serveur 
- })
- .then(res => { res.json()
-     .then(function(json) {
-         let orderId = json.orderId;
-         let productsRes = json.products;
-         let contactRes = json.contact;
+fetch("http://localhost:3000/api/cameras/order", {
+    method: 'POST',            
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(commande) // conversion en JSON des données requis par le serveur 
+})
+.then(res => { res.json()
+    .then(function(json) {
+        let orderId = json.orderId;
+        let productsRes = json.products;
+        let contactRes = json.contact;
          
         console.log(orderId);
         console.log(productsRes);
         console.log(contactRes);
 
-        //Recuperation du prix de chaque article dans la reponse du serveur
+    //Recuperation du prix de chaque article dans la reponse du serveur
     let prixTotal = [];
     for (let i=0; i < productsRes.length; i++){
         let prixTotalPanier = productsRes[i].price;
