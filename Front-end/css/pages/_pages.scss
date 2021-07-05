@@ -250,4 +250,7 @@
 
 .section-commande {
     text-align: center;
+    &__validcommande{
+        padding: 10px;
+    }
 }

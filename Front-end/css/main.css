@@ -479,4 +479,8 @@ h1 {
 .section-commande {
   text-align: center;
 }
+
+.section-commande__validcommande {
+  padding: 10px;
+}
 /*# sourceMappingURL=main.css.map */

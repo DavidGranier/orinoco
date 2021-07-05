@@ -5,69 +5,68 @@ function vider(){
 }
 
 //------------------Affichage des produits dans le panier----------------
-
-//Récupération des objets dans l'array produit du localstorage
-let affichagePanier = localStorage.getItem("produit");
-console.log(affichagePanier);
-
-//Affichage du panier si le localstorage a bien enregistré un produit 
-if (affichagePanier !== null){
-
-    affichagePanier = JSON.parse(localStorage.getItem("produit"));
+function visuelPanier(){
+    //Récupération des objets dans l'array produit du localstorage
+    let affichagePanier = localStorage.getItem("produit");
     console.log(affichagePanier);
-    //création d'une ligne récapitulant les informations de chaque produit dans le panier
-    for (i in affichagePanier){
-        document.getElementById("section-panier").innerHTML += `<div class="section-panier__produit">
-                                                                    <img class="section-panier__produit__image" src="${affichagePanier[i].image}">
-                                                                    <div>
-                                                                    <p class="section-panier__produit__titre"><strong>${affichagePanier[i].nom}</strong></p>
-                                                                    <p class="section-panier__produit__lense">${affichagePanier[i].lense}</p>
-                                                                    </div>
-                                                                    <p class="section-panier__produit__prix">${affichagePanier[i].prix/100} €</p>
-                                                                    
-                                                                </div>`
-    };
 
-    //calcul prix total
+    //Affichage du panier si le localstorage a bien enregistré un produit 
+    if (affichagePanier !== null){
 
-    //Recuperation du prix de chaque article dans le panier
-    let prixTotal = [];
-    for (let i=0; i < affichagePanier.length; i++){
-        let prixTotalPanier = affichagePanier[i].prix;
-        prixTotal.push(prixTotalPanier);
-    };
-    //calcul de la somme
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    prixTotal = prixTotal.reduce(reducer);
-    console.log(prixTotal);
-    
-    //Ajout du module d'affichage du prix total + bouton avec fonction "vider le panier"
-    document.getElementById("section-panier").innerHTML +=`<div class="section-panier__total">
-                                                                <p class="section-panier__total__texte">Total: ${prixTotal/100} € </p>
-                                                            </div>
-                                                            
-                                                            <div class="section-panier__clear">
-                                                                <button onclick=vider()>Vider le panier</button>
-                                                            </div>`;
-    //affiche le formulaire si le panier n'est pas vide
-    document.querySelector(".section-formulaire").style.display = "block";
+        affichagePanier = JSON.parse(localStorage.getItem("produit"));
+        console.log(affichagePanier);
+        //création d'une ligne récapitulant les informations de chaque produit dans le panier
+        for (i in affichagePanier){
+            document.getElementById("section-panier").innerHTML += `<div class="section-panier__produit">
+                                                                        <img class="section-panier__produit__image" src="${affichagePanier[i].image}">
+                                                                        <div>
+                                                                        <p class="section-panier__produit__titre"><strong>${affichagePanier[i].nom}</strong></p>
+                                                                        <p class="section-panier__produit__lense">${affichagePanier[i].lense}</p>
+                                                                        </div>
+                                                                        <p class="section-panier__produit__prix">${affichagePanier[i].prix/100} €</p>
+                                                                        
+                                                                    </div>`
+        };
 
-}//fin if
+        //calcul prix total
 
-//Si le panier est vide
-else{
-    console.log("Panier vide");
-    document.getElementById("section-panier").innerHTML+=`<div class="section-panier__erreur"><p >Panier vide.<br/> </p><button onclick="window.location.href='index.html'">Consultez notre cathalogue</button></div>`;
-}
+        //Recuperation du prix de chaque article dans le panier
+        let prixTotal = [];
+        for (let i=0; i < affichagePanier.length; i++){
+            let prixTotalPanier = affichagePanier[i].prix;
+            prixTotal.push(prixTotalPanier);
+        };
+        //calcul de la somme
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+        prixTotal = prixTotal.reduce(reducer);
+        console.log(prixTotal);
+        
+        //Ajout du module d'affichage du prix total + bouton avec fonction "vider le panier"
+        document.getElementById("section-panier").innerHTML +=`<div class="section-panier__total">
+                                                                    <p class="section-panier__total__texte">Total: ${prixTotal/100} € </p>
+                                                                </div>
+                                                                
+                                                                <div class="section-panier__clear">
+                                                                    <button onclick=vider()>Vider le panier</button>
+                                                                </div>`;
+        //affiche le formulaire si le panier n'est pas vide
+        document.querySelector(".section-formulaire").style.display = "block";
+
+    }//fin if
+
+    //Si le panier est vide
+    else{
+        console.log("Panier vide");
+        document.getElementById("section-panier").innerHTML+=`<div class="section-panier__erreur"><p >Panier vide.<br/> </p><button onclick="window.location.href='index.html'">Consultez notre cathalogue</button></div>`;
+    }
+};
+visuelPanier();
 
 
 
 //-----------------------------------------------------------------------Formulaire-------------------
 
-
-
 //VALIDATION FORMULAIRE APRES CONTROLE
-
 let contact = [];
 const commander = document.getElementById("validerformulaire");
 
@@ -190,8 +189,6 @@ commander.addEventListener("click", (event)=>{
             city : document.getElementById("ville").value,
             email : document.getElementById("email").value,
         };
-
-        
 
         //envoi contact dans le local storage
         console.log(contact);
