@@ -2,9 +2,13 @@
 <html lang="fr">
 
   <head> 
-    <!--TITRE ET LOGO-->
-    <title>Orinoco</title>
+    <meta charset="utf-8">
+    <!--TITRE LOGO ET DESCRIPTION (SEO)-->
+    <title>Orinoco - Appareils photo vintage</title>
+    <meta name="description" content= "Orinoco regroupe des applications thématiques ne vendant qu’un seul groupe de produits. 
+        Il y a par exemple Oribook pour les livres ou Oritextil pour les vêtements.">
     <link rel="shortcut icon" type="image/png" href="logoorinoco.png"/>
+    <meta name="robots" content="index, follow">
     <!--CSS JS-->
     <link rel="stylesheet" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,79 +17,83 @@
     <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <!-- Analytics -->
+    <!--ANalytics END-->
   </head>  
 
   <body>
-
+    <!--Header-->
     <header class="header">
-
       <a class="header__logo" href="index.html"><img src="logoorinoco.png" alt="logo orinoco"></a>
       <a class="header__panier" href="panier.html"><p id="nombreproduit"></p><i id="pannier" class="fas fa-shopping-bag fa-2x"></i></a>
-
     </header>
 
+    <!--Contenu-->
     <main>
-    
+      <!--Bandeau-->
       <div class="bandeau">
-        <h1>Détails du produit</h1>
-        
+        <h1>Appareil photo vintage</h1>
       </div>
-
-        
+      <!--Bloc section-->
       <section id="section-produit" class="section-produit">
+        <!--Sous-bloc affichage du produit-->
         <div id="section-produit-bloc" class="section-produit-bloc">
-
-          <div class="section-produit-bloc__image"><img id="imagecamera"src=""/></div>
-            
+          <!--Bloc affichage de l'image de la camera-->
+          <div class="section-produit-bloc__image"><img id="imagecamera"src="" alt="Photo de la camera"/></div>
+          <!--Bloc affichage de la description de la camera-->
           <div class="section-produit-bloc__description">
-              <div class="section-produit-bloc__description__model">
-                <p id="nomcamera"></p>
-                <span class="section-produit-bloc__description__star">
-                  <i class="fas fa-star fa-xs"></i>
-                  <i class="fas fa-star fa-xs"></i>
-                  <i class="fas fa-star fa-xs"></i>
-                  <i class="fas fa-star fa-xs"></i>
-                  <i class="fas fa-star-half-alt fa-xs"></i>
-                </span>
-              </div>
-              <div class="section-produit-bloc__description__texte"><p id="descriptioncamera"></p></div>
-              <form action="">
-                <select id="listederoulante" name="Objectif">
-                  <!-- LISTE DES OBJECTIFs -->
-                </select>
-                </form>
-                <div class="section-produit-bloc__description__prix"><p id="prixcamera"></p></div>
-                <button id="boutonpanier">Ajouter au panier</button>
-                <p id="confirmationpanier">Produit ajouté à votre panier! <br/> <strong><a href='panier.html'>Finaliser ma commande</a></strong> <br/> <strong><a href='index.html'>Continuer mes achats</a></strong><br/></p>
+            <div class="section-produit-bloc__description__model">
+              <!--Nom de la camera-->
+              <p id="nomcamera"></p>
+              <!--Evaluation-->
+              <span class="section-produit-bloc__description__star">
+                <i class="fas fa-star fa-xs"></i>
+                <i class="fas fa-star fa-xs"></i>
+                <i class="fas fa-star fa-xs"></i>
+                <i class="fas fa-star fa-xs"></i>
+                <i class="fas fa-star-half-alt fa-xs"></i>
+              </span>
             </div>
-
+            <!--Description de la camera-->
+            <div class="section-produit-bloc__description__texte"><p id="descriptioncamera"></p></div>
+            <!-- Liste des objectifs-->
+            <form action="">
+              <select id="listederoulante" name="Objectif">
+              </select>
+            </form>
+            <!--Prix de la camera-->
+            <div class="section-produit-bloc__description__prix"><p id="prixcamera"></p></div>
+            <!--Bouton Ajouter au panier-->
+            <button id="boutonpanier">Ajouter au panier</button>
+            <!--Message de confirmation d'ajout au panier-->
+            <p id="confirmationpanier">Produit ajouté à votre panier! <br/> <strong><a href='panier.html'>Finaliser ma commande</a></strong> 
+            <br/> <strong><a href='index.html'>Continuer mes achats</a></strong><br/></p>
+          </div>
         </div>
-
       </section>
-
     </main>
 
+    <!--Footer-->
     <footer class="footer">
-        <div class="footer__bloc">
-            <p>A PROPOS</p>
-            <a href="">Qui sommes-nous ?</a>
-            <a href="">Recrutement</a>
-            <a href="">Mentions légales</a>
-            <a href="">Politique de confidentialité</a>
-        </div>
+      <div class="footer__bloc">
+          <p>A PROPOS</p>
+          <p>Qui sommes-nous ?</p>
+          <p>Recrutement</p>
+          <p>Mentions légales</p>
+          <p>Politique de confidentialité</p>
+      </div>
 
-        <div class="footer__bloc">
-            <p>AIDE ET CONTACT</p>
-            <a href="">Contactez-nous</a>
-            <a href="">Paiement</a>
-            <a href="">Livraison</a>
-            <a href="">SAV</a>
-        </div>
-
+      <div class="footer__bloc">
+          <p>AIDE ET CONTACT</p>
+          <p>Contactez-nous</p>
+          <p>Paiement</p>
+          <p>Livraison</p>
+          <p>SAV</p>
+      </div>
     </footer>
     
     <script src="./script/produit.js"></script>
-    <script type="text/javascript" src="./script/main.js"></script>
+    <script src="./script/main.js"></script>
   </body>
 </html>

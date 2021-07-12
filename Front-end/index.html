@@ -2,74 +2,68 @@
 <html lang="fr">
 
     <head>
-
         <meta charset="utf-8">
-        <!--TITRE ET LOGO-->
-        <title>Orinoco</title>
+        <!--TITRE LOGO ET DESCRIPTION (SEO)-->
+        <title>Orinoco - Appareils photo vintage</title>
+        <meta name="description" content= "Orinoco regroupe des applications thématiques ne vendant qu’un seul groupe de produits. 
+        Il y a par exemple Oribook pour les livres ou Oritextil pour les vêtements.">
         <link rel="shortcut icon" type="image/png" href="logoorinoco.png"/>
-        <!--CSS JS-->
+        <meta name="robots" content="index, follow">
+        <!--CSS-->
         <link rel="stylesheet" href="css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--FONTS ET ICONES-->
         <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+        <!-- Analytics -->
+        <!--ANalytics END-->
     </head>  
 
-
     <body>
-
+        <!--Header-->
         <header class="header">
-
             <a class="header__logo" href="index.html"><img src="logoorinoco.png" alt="logo orinoco"></a>
             <a class="header__panier" href="panier.html"><p id="nombreproduit"></p><i id="pannier" class="fas fa-shopping-bag fa-2x"></i></a>
-
         </header>
 
+        <!--Contenu-->
         <main>
-        
+            <!--Bandeau-->
             <div class="bandeau">
-                <h1>Bienvenue sur Orinoco!</h1> 
+                <h1>Bienvenue sur Orinoco!</h1>
+                <p>Découvrez notre collection d'appareils photos vintage !</p> 
             </div>
 
-            <div class="bloc-produit">
-                
-                <h2>Appareils photo vintage :</h2>
-
+            <section class="bloc-produit">
+                <h2>La selection de l'équipe :</h2>
+                <!--Affiche la liste des produits de l'API (Nom description et prix)-->
                 <div class="produit" id="produit">
                 </div>
-
-            </div>
-
+            </section>
         </main>
 
+        <!--Footer-->
         <footer class="footer">
             <div class="footer__bloc">
                 <p>A PROPOS</p>
-                <a href="">Qui sommes-nous ?</a>
-                <a href="">Recrutement</a>
-                <a href="">Mentions légales</a>
-                <a href="">Politique de confidentialité</a>
+                <p>Qui sommes-nous ?</p>
+                <p>Recrutement</p>
+                <p>Mentions légales</p>
+                <p>Politique de confidentialité</p>
             </div>
 
             <div class="footer__bloc">
                 <p>AIDE ET CONTACT</p>
-                <a href="">Contactez-nous</a>
-                <a href="">Paiement</a>
-                <a href="">Livraison</a>
-                <a href="">SAV</a>
+                <p>Contactez-nous</p>
+                <p>Paiement</p>
+                <p>Livraison</p>
+                <p>SAV</p>
             </div>
-
         </footer>
 
-    
-        <script type="text/javascript" src="./script/index.js"></script>
-        <script type="text/javascript" src="./script/main.js"></script>
-
-
-        
-        
-        
+        <script src="./script/index.js"></script>
+        <script src="./script/main.js"></script>
     </body>
 </html>

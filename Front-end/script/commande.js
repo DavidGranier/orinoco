@@ -35,6 +35,7 @@ fetch("http://localhost:3000/api/cameras/order", {
     body: JSON.stringify(commande) // conversion en JSON des données requis par le serveur 
 })
 .then(res => { res.json()
+    //Récupération de la réponse de l'API pour générer le bon de commande
     .then(function(json) {
         let orderId = json.orderId;
         let productsRes = json.products;
@@ -55,7 +56,7 @@ fetch("http://localhost:3000/api/cameras/order", {
     prixTotal = prixTotal.reduce(reducer);
     console.log(prixTotal);
     document.getElementById("section-commande").innerHTML = `<p class="section-commande__validcommande">Merci ${contactRes.firstName} ${contactRes.lastName}! Votre commande n°<strong>${orderId}</strong> d'un montant de <strong>${prixTotal/100}€</strong> à bien été prise en compte</p>`;
-    //vide le panier automatiquement après la réponse du server
+    //vide le panier automatiquement après la réponse du serveur
     localStorage.clear();
 
      });

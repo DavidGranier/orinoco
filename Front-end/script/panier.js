@@ -18,7 +18,7 @@ function visuelPanier(){
         //création d'une ligne récapitulant les informations de chaque produit dans le panier
         for (i in affichagePanier){
             document.getElementById("section-panier").innerHTML += `<div class="section-panier__produit">
-                                                                        <img class="section-panier__produit__image" src="${affichagePanier[i].image}">
+                                                                        <img class="section-panier__produit__image" src="${affichagePanier[i].image}" alt="photo camera">
                                                                         <div>
                                                                         <p class="section-panier__produit__titre"><strong>${affichagePanier[i].nom}</strong></p>
                                                                         <p class="section-panier__produit__lense">${affichagePanier[i].lense}</p>
@@ -43,6 +43,7 @@ function visuelPanier(){
         
         //Ajout du module d'affichage du prix total + bouton avec fonction "vider le panier"
         document.getElementById("section-panier").innerHTML +=`<div class="section-panier__total">
+                                                                    <p class="section-panier__total__livraison"> Livraison : <strong>Offerte</strong></p>
                                                                     <p class="section-panier__total__texte">Total: ${prixTotal/100} € </p>
                                                                 </div>
                                                                 
