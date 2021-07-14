@@ -1,32 +1,25 @@
 //-------------------Envoi de la commande au serveur------------------
- 
-//recup juste les id produit
+//recupère les id produit
 let produit = JSON.parse(localStorage.getItem("produit"));
 //retour a l'index.html si produit est null
 if(produit===null){
     window.location.href ="./index.html"; 
 }
-
 let produitId = [];
 for(let i =0; i<produit.length; i++){
      produitId.push(produit[i]._id);  
 }
-
-//recup contact
+//recupère contact
 let contact = JSON.parse(localStorage.getItem("contact"));
-
 //retour a l'index.html si contact est null
 if (contact === null){
     window.location.href ="./index.html"; 
 }
-
 let commande = {
      contact : contact,
      products : produitId,
 };
- 
  // envoi au serveur
-
 fetch("http://localhost:3000/api/cameras/order", {
     method: 'POST',            
     headers: {
@@ -40,7 +33,6 @@ fetch("http://localhost:3000/api/cameras/order", {
         let orderId = json.orderId;
         let productsRes = json.products;
         let contactRes = json.contact;
-         
         console.log(orderId);
         console.log(productsRes);
         console.log(contactRes);
@@ -55,7 +47,8 @@ fetch("http://localhost:3000/api/cameras/order", {
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     prixTotal = prixTotal.reduce(reducer);
     console.log(prixTotal);
-    document.getElementById("section-commande").innerHTML = `<p class="section-commande__validcommande">Merci ${contactRes.firstName} ${contactRes.lastName}! Votre commande n°<strong>${orderId}</strong> d'un montant de <strong>${prixTotal/100}€</strong> à bien été prise en compte</p>`;
+    document.getElementById("section-commande").innerHTML = 
+    `<p class="section-commande__validcommande">Merci ${contactRes.firstName} ${contactRes.lastName}! Votre commande n°<strong>${orderId}</strong> d'un montant de <strong>${prixTotal/100}€</strong> à bien été prise en compte</p>`;
     //vide le panier automatiquement après la réponse du serveur
     localStorage.clear();
 

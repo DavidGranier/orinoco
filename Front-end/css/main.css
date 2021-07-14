@@ -1,29 +1,3 @@
-@-webkit-keyframes swipe {
-  from {
-    -webkit-transform: translateX(500px);
-            transform: translateX(500px);
-    opacity: 0;
-  }
-  to {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes swipe {
-  from {
-    -webkit-transform: translateX(500px);
-            transform: translateX(500px);
-    opacity: 0;
-  }
-  to {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-    opacity: 1;
-  }
-}
-
 body {
   margin: 0;
   font-family: 'Nunito', arial;
@@ -39,8 +13,7 @@ a {
 button {
   width: 150px;
   height: 50px;
-  background: #c84f09;
-  background: linear-gradient(159deg, rgba(200, 79, 9, 0.877188) 8%, rgba(161, 20, 179, 0.882791) 100%);
+  background: linear-gradient(140deg, #e78b07 8%, #8f5BFE 100%);
   font-weight: bold;
   border-radius: 20px;
   -webkit-box-shadow: 0px 1px 10px grey;
@@ -364,8 +337,7 @@ h1 {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  background: #c84f09;
-  background: linear-gradient(159deg, rgba(200, 79, 9, 0.877188) 8%, rgba(161, 20, 179, 0.882791) 100%);
+  background: linear-gradient(159deg, #e78b07 8%, #8f5BFE 100%);
   border-radius: 20px;
 }
 

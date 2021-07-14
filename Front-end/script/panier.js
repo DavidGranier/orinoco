@@ -27,9 +27,7 @@ function visuelPanier(){
                                                                         
                                                                     </div>`
         };
-
         //calcul prix total
-
         //Recuperation du prix de chaque article dans le panier
         let prixTotal = [];
         for (let i=0; i < affichagePanier.length; i++){
@@ -63,19 +61,14 @@ function visuelPanier(){
 };
 visuelPanier();
 
-
-
 //-----------------------------------------------------------------------Formulaire-------------------
-
 //VALIDATION FORMULAIRE APRES CONTROLE
 let contact = [];
 const commander = document.getElementById("validerformulaire");
 
-
 //au click du bouton commander
 commander.addEventListener("click", (event)=>{
     event.preventDefault();
-
     //Récupération des valeurs du formulaire
     let inputPrenom = document.getElementById("prenom").value;
     let inputNom = document.getElementById("nom").value;
@@ -83,10 +76,7 @@ commander.addEventListener("click", (event)=>{
     let inputAdresse = document.getElementById("adresse").value;
     let inputVille = document.getElementById("ville").value;
     console.log(inputPrenom);
-
-
     //----------------Controle des input formulaire
-
     //controle prénom
     function validPrenom(){
         if(/^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/.test(inputPrenom)){
@@ -104,7 +94,6 @@ commander.addEventListener("click", (event)=>{
             return false;
         }
     };
-
     //controle nom
     function validNom(){
         if(/^[a-zA-ZéèîïÉÈÎÏ][A-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/.test(inputNom)){
@@ -122,7 +111,6 @@ commander.addEventListener("click", (event)=>{
             return false;
         }
     };
-
     //controle email
     function validEmail(){
         if(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(inputEmail)){
@@ -140,7 +128,6 @@ commander.addEventListener("click", (event)=>{
             return false;
         }
     };
-
     //controle adresse
     function validAdresse(){
         if(/^\d+\s[A-z]+\s[A-z]+/.test(inputAdresse)){
@@ -175,13 +162,10 @@ commander.addEventListener("click", (event)=>{
             return false;
         }
     };
-
     //execution si toutes les fonctions sont valide
     if (validPrenom() && validNom() && validEmail() && validAdresse() && validVille()){
         //nettoyage du localstorage
         localStorage.removeItem("contact");
-
-
         //définition de l'objet contact
         let contact = {
             firstName : document.getElementById("prenom").value,
@@ -190,13 +174,10 @@ commander.addEventListener("click", (event)=>{
             city : document.getElementById("ville").value,
             email : document.getElementById("email").value,
         };
-
         //envoi contact dans le local storage
         console.log(contact);
         localStorage.setItem("contact", JSON.stringify(contact));
-        
-       //redirection vers commande.html
-       window.location.href="commande.html";
+        //redirection vers commande.html
+        window.location.href="commande.html";
     } 
 });//fin addEventListener
-
