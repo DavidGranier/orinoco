@@ -493,4 +493,10 @@ h1 {
 .section-commande__validcommande {
   padding: 10px;
 }
+
+.section-commande__img {
+  width: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 /*# sourceMappingURL=main.css.map */

@@ -47,8 +47,8 @@ fetch("http://localhost:3000/api/cameras/order", {
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     prixTotal = prixTotal.reduce(reducer);
     console.log(prixTotal);
-    document.getElementById("section-commande").innerHTML = 
-    `<p class="section-commande__validcommande">Merci ${contactRes.firstName} ${contactRes.lastName}! Votre commande n°<strong>${orderId}</strong> d'un montant de <strong>${prixTotal/100}€</strong> à bien été prise en compte</p>`;
+    document.getElementById("section-commande").innerHTML =
+    `<p class="section-commande__validcommande">Merci ${contactRes.firstName} ${contactRes.lastName}! Votre commande n°<strong>${orderId}</strong> d'un montant de <strong>${prixTotal/100}€</strong> à bien été prise en compte</p><img class="section-commande__img" src="./colis.jpg" alt="colis">`;
     //vide le panier automatiquement après la réponse du serveur
     localStorage.clear();
 
