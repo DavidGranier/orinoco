@@ -27,22 +27,13 @@ function visuelPanier(){
                                                                         
                                                                     </div>`
         };
-        //calcul prix total
-        //Recuperation du prix de chaque article dans le panier
-        let prixTotal = [];
-        for (let i=0; i < affichagePanier.length; i++){
-            let prixTotalPanier = affichagePanier[i].prix;
-            prixTotal.push(prixTotalPanier);
-        };
-        //calcul de la somme
-        const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        prixTotal = prixTotal.reduce(reducer);
-        console.log(prixTotal);
+        
+
         
         //Ajout du module d'affichage du prix total + bouton avec fonction "vider le panier"
         document.getElementById("section-panier").innerHTML +=`<div class="section-panier__total">
                                                                     <p class="section-panier__total__livraison"> Livraison : <strong>Offerte</strong></p>
-                                                                    <p class="section-panier__total__texte">Total: ${prixTotal/100} € </p>
+                                                                    <p class="section-panier__total__texte">Total: ${calculPrix()/100} € </p>
                                                                 </div>
                                                                 
                                                                 <div class="section-panier__clear">

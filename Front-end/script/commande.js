@@ -38,22 +38,14 @@ fetch("http://localhost:3000/api/cameras/order", {
         console.log(contactRes);
 
     //Recuperation du prix de chaque article dans la reponse du serveur
-    let prixTotal = [];
-    for (let i=0; i < productsRes.length; i++){
-        let prixTotalPanier = productsRes[i].price;
-        prixTotal.push(prixTotalPanier);
-    };
-    //calcul de la somme
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    prixTotal = prixTotal.reduce(reducer);
-    console.log(prixTotal);
+    
     document.getElementById("section-commande").innerHTML =
-    `<p class="section-commande__validcommande">Merci ${contactRes.firstName} ${contactRes.lastName}! Votre commande n°<strong>${orderId}</strong> d'un montant de <strong>${prixTotal/100}€</strong> à bien été prise en compte</p><img class="section-commande__img" src="./colis.jpg" alt="colis">`;
+    `<p class="section-commande__validcommande">Merci ${contactRes.firstName} ${contactRes.lastName}! Votre commande n°<strong>${orderId}</strong> d'un montant de <strong>${calculPrix()/100}€</strong> à bien été prise en compte</p><img class="section-commande__img" src="./colis.jpg" alt="colis">`;
     //vide le panier automatiquement après la réponse du serveur
     localStorage.clear();
 
      });
  })
- .catch(error => { // enregistrement si erreur lors de l'envoi de données 
+ .catch(error => { // enregistrement si erreur lors de l'envoi de données
       alert(error);
  });
