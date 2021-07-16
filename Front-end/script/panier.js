@@ -1,19 +1,10 @@
-//fonction vider le panier
-function vider(){
-    localStorage.clear("produit");
-    window.location.reload()
-}
-
 //------------------Affichage des produits dans le panier----------------
 function visuelPanier(){
-    //Récupération des objets dans l'array produit du localstorage
-    let affichagePanier = localStorage.getItem("produit");
-    console.log(affichagePanier);
-
+    
     //Affichage du panier si le localstorage a bien enregistré un produit 
-    if (affichagePanier !== null){
+    if (produitPanier() !== null){
 
-        affichagePanier = JSON.parse(localStorage.getItem("produit"));
+        affichagePanier = JSON.parse(produitPanier());
         console.log(affichagePanier);
         //création d'une ligne récapitulant les informations de chaque produit dans le panier
         for (i in affichagePanier){

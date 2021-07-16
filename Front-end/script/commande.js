@@ -1,18 +1,19 @@
 //-------------------Envoi de la commande au serveur------------------
-//recupère les id produit
-let produit = JSON.parse(localStorage.getItem("produit"));
-//retour a l'index.html si produit est null
+
+let produit = JSON.parse(produitPanier());
 if(produit===null){
+    //retour a l'index.html si produit est null
     window.location.href ="./index.html"; 
 }
+
 let produitId = [];
 for(let i =0; i<produit.length; i++){
      produitId.push(produit[i]._id);  
 }
 //recupère contact
 let contact = JSON.parse(localStorage.getItem("contact"));
-//retour a l'index.html si contact est null
 if (contact === null){
+    //retour a l'index.html si contact est null
     window.location.href ="./index.html"; 
 }
 let commande = {
